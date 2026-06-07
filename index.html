@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="te">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>నిశ్చితార్థ మహోత్సవం | Shanmukhi ❤️ Pavan</title>
+  <title>నిశ్చితార్థ మహోత్సవం | Shanmukhi 💍 Pavan</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Dancing+Script:wght@600;700&family=Noto+Sans+Telugu:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
@@ -286,7 +286,7 @@
     .card-head { padding: 24px 20px; text-align: center; }
     .bride-head { background: linear-gradient(135deg,#7A0019,#a0003a,#5A0012); }
     .groom-head { background: linear-gradient(135deg,#1E5631,#2d7050,#143d22); }
-    .char-svg-wrap { width: 140px; height: 185px; margin: 0 auto 14px; cursor: pointer; }
+    .char-svg-wrap { width: 140px; height: 215px; margin: 0 auto 14px; cursor: pointer; }
     .char-svg-wrap svg { width: 100%; height: 100%; transition: transform .3s; }
     .char-svg-wrap:hover svg { animation: charWave .5s ease; }
     @keyframes charWave {
@@ -533,7 +533,7 @@
       .ld-bride, .ld-groom { width: 52px; }
       .couple-wrap     { gap: 20px; }
       .char-card       { min-width: 0; width: 100%; }
-      .char-svg-wrap   { width: 120px; height: 160px; }
+      .char-svg-wrap   { width: 120px; height: 185px; }
       .cer-card        { min-width: 140px; padding: 18px 16px; }
       .proposal-couple { gap: 16px; }
       .finale-chars    { gap: 20px; }
@@ -572,7 +572,7 @@
       .bless-text      { font-size: .92rem; }
       .parent-name     { font-size: .9rem; }
       .proposal-quote  { font-size: .95rem; }
-      .char-svg-wrap   { width: 100px; height: 132px; }
+      .char-svg-wrap   { width: 100px; height: 152px; }
       .fun-facts li    { font-size: .82rem; }
       .v-name          { font-size: 1rem; }
       .v-address       { font-size: .84rem; }
@@ -602,6 +602,180 @@
       0%,100% { box-shadow: 0 4px 20px rgba(212,175,55,.5), 0 0 0 0   rgba(212,175,55,.6); }
       65%     { box-shadow: 0 4px 20px rgba(212,175,55,.5), 0 0 0 14px rgba(212,175,55,0); }
     }
+
+    /* ============================================================
+       RING ANIMATION — replaces ❤️ everywhere
+    ============================================================ */
+    .ring-anim {
+      display: inline-block;
+      animation: ringSparkle 2.4s ease infinite;
+    }
+    .hero-heart { display: inline-block; animation: ringSparkle 2.4s ease infinite; }
+    @keyframes ringSparkle {
+      0%,100% { transform: scale(1) rotate(-10deg); filter: brightness(1); }
+      50%     { transform: scale(1.45) rotate(10deg); filter: brightness(2) drop-shadow(0 0 10px #D4AF37); }
+    }
+
+    /* ============================================================
+       INVITATION CARD OPENING — double-door fold
+    ============================================================ */
+    #card-cover {
+      position: absolute; inset: 0; z-index: 10;
+      cursor: pointer; overflow: visible;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .cc-door {
+      position: absolute; top: 0; height: 100%;
+      background: linear-gradient(160deg, #150006 0%, #240010 55%, #0a0e04 100%);
+      transition: transform .9s cubic-bezier(.4,0,.2,1), opacity .28s ease .72s;
+      backface-visibility: hidden;
+    }
+    .cc-left  { left: 0; width: 50.5%; transform-origin: left center;
+                border-right: 1px solid rgba(212,175,55,.4); }
+    .cc-right { right: 0; width: 50.5%; transform-origin: right center;
+                border-left: 1px solid rgba(212,175,55,.4); }
+    #card-cover.open .cc-left  { transform: perspective(900px) rotateY(-108deg); opacity: 0; }
+    #card-cover.open .cc-right { transform: perspective(900px) rotateY(108deg);  opacity: 0; }
+    .cc-content {
+      position: absolute; inset: 0; z-index: 11;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      pointer-events: none; padding: 20px;
+      transition: opacity .3s ease .48s;
+    }
+    #card-cover.open .cc-content { opacity: 0; }
+    .cc-corner { position: absolute; pointer-events: none; }
+    .cc-corner.tl { top: 14px; left: 14px; }
+    .cc-corner.tr { top: 14px; right: 14px; }
+    .cc-corner.bl { bottom: 14px; left: 14px; }
+    .cc-corner.br { bottom: 14px; right: 14px; }
+    .cc-flowers { font-size: 1.2rem; color: var(--gold); margin-bottom: 12px; }
+    .cc-title   { font-family: 'Noto Sans Telugu', serif; font-size: clamp(1.1rem,4vw,1.7rem);
+                  color: var(--gold); text-align: center;
+                  text-shadow: 0 0 24px rgba(212,175,55,.55); margin-bottom: 10px; }
+    .cc-hr      { width: 130px; height: 1px;
+                  background: linear-gradient(to right,transparent,var(--gold),transparent);
+                  margin: 8px auto; }
+    .cc-sub     { font-family: 'Dancing Script', cursive;
+                  font-size: clamp(.75rem,2vw,.95rem);
+                  color: rgba(244,194,194,.75); margin-bottom: 10px; }
+    .cc-names   { font-family: 'Cinzel Decorative', serif;
+                  font-size: clamp(.95rem,3vw,1.35rem);
+                  color: #fff; letter-spacing: 2px; margin-bottom: 6px; }
+    .cc-date    { font-family: 'Dancing Script', cursive;
+                  font-size: clamp(.8rem,2vw,1.05rem); color: var(--pink); margin-bottom: 4px; }
+    .cc-venue   { font-size: .68rem; color: rgba(255,255,255,.4);
+                  letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 22px; }
+    .cc-tap     { font-size: .66rem; color: rgba(212,175,55,.65);
+                  letter-spacing: 3px; text-transform: uppercase;
+                  animation: tapPulse 2s ease infinite; }
+    @keyframes tapPulse { 0%,100% { opacity: .4; } 50% { opacity: 1; } }
+
+    /* ============================================================
+       CARD INSIDE WRAP
+    ============================================================ */
+    #card-inside-wrap {
+      display: flex; flex-direction: column; align-items: center;
+      width: 100%; opacity: 0; transition: opacity .8s ease;
+    }
+    #card-inside-wrap.visible { opacity: 1; }
+
+    /* ============================================================
+       TEMPLE SILHOUETTE — enhanced visibility
+    ============================================================ */
+    .temple-silhouette { opacity: .2; }
+
+    /* ============================================================
+       BEIGE ENVELOPE CARD
+    ============================================================ */
+    .envelope {
+      position: relative;
+      width: min(290px, 82vw);
+    }
+    .env-bg-svg {
+      width: 100%; display: block; height: auto;
+      border-radius: 4px;
+      box-shadow: 0 18px 60px rgba(0,0,0,.65), 0 0 0 1px rgba(200,168,64,.3);
+    }
+    .env-content {
+      position: absolute;
+      left: 16px; right: 16px; top: 54%; bottom: 7%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      z-index: 2; text-align: center; pointer-events: none;
+    }
+    .env-flap {
+      position: absolute; top: 0; left: 0; right: 0;
+      z-index: 5; transform-origin: top center;
+      transition: transform .95s cubic-bezier(.35,0,.2,1),
+                  opacity .22s ease .82s;
+    }
+    #card-cover.open .env-flap {
+      transform: perspective(700px) rotateX(-185deg);
+      opacity: 0;
+    }
+    .env-flap-svg { width: 100%; display: block; }
+    .env-seal {
+      position: absolute; top: 100%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50px; height: 50px; border-radius: 50%;
+      background: radial-gradient(circle at 38% 35%, #F2D858, #8B6506);
+      border: 2.5px solid #C8A840;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 3px 16px rgba(0,0,0,.5); z-index: 6;
+      transition: opacity .22s ease .82s;
+    }
+    #card-cover.open .env-seal { opacity: 0; }
+    .env-tap-txt {
+      position: absolute; top: calc(100% + 16px);
+      left: 0; right: 0; text-align: center;
+      font-size: .62rem; color: rgba(200,162,60,.82);
+      letter-spacing: 3px; text-transform: uppercase;
+      animation: tapPulse 2s ease infinite;
+      white-space: nowrap; pointer-events: none;
+    }
+    .ec-flowers { font-size: .95rem; color: #9B7A14; margin-bottom: 6px; }
+    .ec-title   { font-family: 'Noto Sans Telugu', serif;
+                  font-size: clamp(.78rem,2.8vw,1rem);
+                  color: #5C2800; margin-bottom: 6px; line-height: 1.35; }
+    .ec-hr      { width: 65px; height: 1px; margin: 5px auto;
+                  background: linear-gradient(to right,transparent,#C8A840,transparent); }
+    .ec-sub     { font-family: 'Dancing Script', cursive;
+                  font-size: clamp(.65rem,1.8vw,.82rem);
+                  color: #8B5A32; margin-bottom: 5px; }
+    .ec-names   { font-family: 'Cinzel Decorative', serif;
+                  font-size: clamp(.72rem,2.2vw,.92rem);
+                  color: #3A1800; letter-spacing: 1px; margin-bottom: 5px; }
+    .ec-date    { font-family: 'Dancing Script', cursive;
+                  font-size: clamp(.7rem,1.8vw,.88rem); color: #8B4513; }
+    .ec-venue   { font-size: .58rem; color: #A07050;
+                  letter-spacing: 1px; text-transform: uppercase; margin-top: 2px; }
+
+    /* ============================================================
+       COUPLE PHOTO
+    ============================================================ */
+    .couple-photo-hero {
+      height: min(300px, 44vh);
+      width: auto;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0,0,0,.4);
+      display: block;
+    }
+    .finale-couple-photo {
+      height: min(260px, 40vh);
+      width: auto;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0,0,0,.4);
+      margin-bottom: 16px;
+      display: block;
+    }
+    .char-svg-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 8px;
+    }
   </style>
 </head>
 
@@ -611,10 +785,71 @@
      LOADING SCREEN
 ================================================================ -->
 <div id="loading-screen">
-  <div class="loading-title">
-    <h1>నిశ్చితార్థ మహోత్సవం</h1>
-    <p>Two Hearts. One Beautiful Beginning.</p>
+
+  <!-- ══ BEIGE ENVELOPE CARD COVER ══ -->
+  <div id="card-cover" onclick="openCard()">
+    <div class="envelope">
+      <!-- Envelope body background with fold lines -->
+      <svg class="env-bg-svg" viewBox="0 0 300 380" xmlns="http://www.w3.org/2000/svg">
+        <rect width="300" height="380" rx="4" fill="#F7EDD8"/>
+        <!-- Diagonal fold triangles from corners -->
+        <polygon points="0,0 150,190 0,380" fill="#EDE2C6"/>
+        <polygon points="300,0 150,190 300,380" fill="#EDE2C6"/>
+        <!-- Bottom V fold -->
+        <polygon points="0,380 150,190 300,380" fill="#E5D5A8"/>
+        <!-- Fold lines -->
+        <line x1="0" y1="0" x2="150" y2="190" stroke="#C8A840" stroke-width=".8" opacity=".6"/>
+        <line x1="300" y1="0" x2="150" y2="190" stroke="#C8A840" stroke-width=".8" opacity=".6"/>
+        <line x1="0" y1="380" x2="150" y2="190" stroke="#C8A840" stroke-width=".8" opacity=".6"/>
+        <line x1="300" y1="380" x2="150" y2="190" stroke="#C8A840" stroke-width=".8" opacity=".6"/>
+        <!-- Outer border -->
+        <rect width="300" height="380" rx="4" fill="none" stroke="#C8A840" stroke-width="1.5"/>
+        <!-- Inner decorative border -->
+        <rect x="8" y="8" width="284" height="364" rx="3" fill="none" stroke="#D4B870" stroke-width=".6" opacity=".45"/>
+        <!-- Corner ornaments -->
+        <text x="14" y="30" fill="#C8A840" font-size="13" opacity=".65">✿</text>
+        <text x="273" y="30" fill="#C8A840" font-size="13" opacity=".65">✿</text>
+        <text x="14" y="375" fill="#C8A840" font-size="13" opacity=".65">✿</text>
+        <text x="273" y="375" fill="#C8A840" font-size="13" opacity=".65">✿</text>
+      </svg>
+
+      <!-- Invitation content (visible in lower half of envelope) -->
+      <div class="env-content">
+        <div class="ec-flowers">🌸 ✦ 🌸</div>
+        <h2 class="ec-title">నిశ్చితార్థ మహోత్సవం</h2>
+        <div class="ec-hr"></div>
+        <div class="ec-sub">With blessings &amp; joy, we invite you to the Engagement of</div>
+        <div class="ec-names">Shanmukhi <span class="ring-anim">💍</span> Pavan</div>
+        <div class="ec-hr"></div>
+        <div class="ec-date">Wednesday · 24 June 2026</div>
+        <div class="ec-venue">Hotel Sunrise · Jeypore, Odisha</div>
+      </div>
+
+      <!-- Animated envelope flap (folds back on tap) -->
+      <div class="env-flap">
+        <svg class="env-flap-svg" viewBox="0 0 300 195" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="0,0 300,0 150,195" fill="#EAD9B0"/>
+          <line x1="0" y1="0" x2="300" y2="0" stroke="#C8A840" stroke-width="1.5"/>
+          <line x1="0" y1="0" x2="150" y2="195" stroke="#C8A840" stroke-width=".8" opacity=".5"/>
+          <line x1="300" y1="0" x2="150" y2="195" stroke="#C8A840" stroke-width=".8" opacity=".5"/>
+        </svg>
+        <!-- Wax seal at flap tip / envelope center -->
+        <div class="env-seal">
+          <span class="ring-anim" style="font-size:1.3rem;">💍</span>
+        </div>
+      </div>
+
+      <!-- Tap hint below envelope -->
+      <div class="env-tap-txt">✦ Tap to Open ✦</div>
+    </div>
   </div>
+
+  <!-- ══ INSIDE CONTENT — revealed when card opens ══ -->
+  <div id="card-inside-wrap">
+    <div class="loading-title">
+      <h1>నిశ్చితార్థ మహోత్సవం</h1>
+      <p>Two Hearts. One Beautiful Beginning.</p>
+    </div>
 
   <div class="rangoli-wrap">
     <svg class="rangoli-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
@@ -703,7 +938,7 @@
       </svg>
     </div>
 
-    <div class="ld-rings">💍❤️💍</div>
+    <div class="ld-rings"><span class="ring-anim" style="font-size:2rem;">💍</span></div>
 
     <!-- Groom -->
     <div class="ld-groom">
@@ -755,6 +990,7 @@
   </div>
 
   <div class="loading-dots"><span></span><span></span><span></span></div>
+  </div><!-- /card-inside-wrap -->
 </div>
 
 <!-- ================================================================
@@ -812,7 +1048,7 @@
     </p>
     <div class="hero-divider"></div>
     <div class="hero-names">
-      Shanmukhi <span class="hero-heart">❤️</span> Pavan
+      Shanmukhi <span class="ring-anim">💍</span> Pavan
     </div>
     <p style="font-family:'Dancing Script',cursive;color:rgba(244,194,194,.7);font-size:1rem;margin-top:12px;">
       Wednesday · 24 June 2026 · Jeypore, Odisha
@@ -835,92 +1071,19 @@
 <section id="proposal" class="section">
   <div class="section-title reveal">
     <h2>The Proposal</h2>
-    <div class="tel-sub" style="color:var(--pink);">ప్రేమ నివేదన</div>
+    <!-- <div class="tel-sub" style="color:var(--pink);">ప్రేమ నివేదన</div> -->
     <div class="gold-line"></div>
   </div>
 
   <div class="proposal-inner">
-    <div class="proposal-couple">
-      <!-- Groom (left, extending hand) -->
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 240" style="width:90px;transform:scaleX(-1)">
-        <path d="M22,116 C19,164 17,201 19,240 L101,240 C103,201 101,164 98,116Z" fill="#FFFDE7"/>
-        <path d="M22,240 C19,201 19,164 22,116" stroke="#D4AF37" stroke-width="3"/>
-        <path d="M98,240 C101,201 101,164 98,116" stroke="#D4AF37" stroke-width="3"/>
-        <path d="M19,240 L101,240" stroke="#D4AF37" stroke-width="5"/>
-        <path d="M20,73 C18,89 18,116 22,116 L98,116 C102,116 102,89 100,73Z" fill="#FFFDE7"/>
-        <path d="M20,73 C18,89 18,116 22,116" stroke="#D4AF37" stroke-width="2.5"/>
-        <path d="M100,73 C102,89 102,116 98,116" stroke="#D4AF37" stroke-width="2.5"/>
-        <path d="M22,111 L98,111" stroke="#D4AF37" stroke-width="3"/>
-        <line x1="60" y1="73" x2="60" y2="111" stroke="#D4AF37" stroke-width="1"/>
-        <circle cx="60" cy="81"  r="2" fill="#D4AF37"/>
-        <circle cx="60" cy="91"  r="2" fill="#D4AF37"/>
-        <circle cx="60" cy="101" r="2" fill="#D4AF37"/>
-        <!-- extended arm holding ring -->
-        <line x1="22" y1="81" x2="0"   y2="130" stroke="#D4A878" stroke-width="11" stroke-linecap="round"/>
-        <line x1="98" y1="81" x2="115" y2="144" stroke="#D4A878" stroke-width="11" stroke-linecap="round"/>
-        <ellipse cx="-2" cy="138" rx="7" ry="9" fill="#D4A878"/>
-        <ellipse cx="116" cy="153" rx="7" ry="9" fill="#D4A878"/>
-        <rect x="50" y="58" width="20" height="18" rx="5" fill="#D4A878"/>
-        <ellipse cx="60" cy="39" rx="29" ry="32" fill="#1a1a2e"/>
-        <ellipse cx="60" cy="45" rx="27" ry="29" fill="#D4A878"/>
-        <path d="M33,37 Q60,18 87,37 L87,45 Q60,28 33,45Z" fill="#1a1a2e"/>
-        <path d="M40,32 Q48,27 56,32" stroke="#111" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-        <path d="M64,32 Q72,27 80,32" stroke="#111" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-        <ellipse cx="48" cy="44" rx="9" ry="8" fill="white"/>
-        <circle  cx="48" cy="44" r="5"   fill="#4a2800"/>
-        <circle  cx="48" cy="44" r="3.5" fill="#1a0800"/>
-        <circle  cx="51" cy="41" r="1.8" fill="white"/>
-        <path d="M39,39 Q48,34 57,39" stroke="#111" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        <ellipse cx="72" cy="44" rx="9" ry="8" fill="white"/>
-        <circle  cx="72" cy="44" r="5"   fill="#4a2800"/>
-        <circle  cx="72" cy="44" r="3.5" fill="#1a0800"/>
-        <circle  cx="75" cy="41" r="1.8" fill="white"/>
-        <path d="M63,39 Q72,34 81,39" stroke="#111" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        <path d="M49,69 Q60,79 71,69 Q60,73 49,69Z" fill="#e08080"/>
-      </svg>
-
-      <!-- Ring glow center -->
-      <div class="ring-glow">💍</div>
-
-      <!-- Bride (right, smiling) -->
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 240" style="width:90px">
-        <ellipse cx="60" cy="50" rx="30" ry="34" fill="#1a1a2e"/>
-        <ellipse cx="60" cy="18" rx="17" ry="14" fill="#1a1a2e"/>
-        <circle cx="44" cy="11" r="4"   fill="white"/><circle cx="44" cy="11" r="1.8" fill="#FFE44D"/>
-        <circle cx="53" cy="5"  r="3.5" fill="white"/><circle cx="53" cy="5"  r="1.5" fill="#FFE44D"/>
-        <circle cx="62" cy="3"  r="4.2" fill="white"/><circle cx="62" cy="3"  r="1.8" fill="#FFE44D"/>
-        <circle cx="71" cy="5"  r="3.5" fill="white"/><circle cx="71" cy="5"  r="1.5" fill="#FFE44D"/>
-        <circle cx="80" cy="11" r="4"   fill="white"/><circle cx="80" cy="11" r="1.8" fill="#FFE44D"/>
-        <ellipse cx="60" cy="53" rx="26" ry="30" fill="#F5C5A3"/>
-        <path d="M34,45 Q60,28 86,45 L86,53 Q60,36 34,53Z" fill="#1a1a2e"/>
-        <circle cx="60" cy="40" r="3.2" fill="#CC0000"/>
-        <ellipse cx="48" cy="54" rx="8.5" ry="7.5" fill="white"/>
-        <circle  cx="48" cy="54" r="5"   fill="#4a2800"/>
-        <circle  cx="48" cy="54" r="3"   fill="#1a0800"/>
-        <circle  cx="51" cy="51" r="1.5" fill="white"/>
-        <path d="M39,49 Q48,44 57,49" stroke="#111" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        <ellipse cx="72" cy="54" rx="8.5" ry="7.5" fill="white"/>
-        <circle  cx="72" cy="54" r="5"   fill="#4a2800"/>
-        <circle  cx="72" cy="54" r="3"   fill="#1a0800"/>
-        <circle  cx="75" cy="51" r="1.5" fill="white"/>
-        <path d="M63,49 Q72,44 81,49" stroke="#111" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        <ellipse cx="37" cy="62" rx="7" ry="4" fill="#FFB6C1" opacity=".4"/>
-        <ellipse cx="83" cy="62" rx="7" ry="4" fill="#FFB6C1" opacity=".4"/>
-        <path d="M52,73 Q60,81 68,73 Q60,77 52,73Z" fill="#D4607A"/>
-        <rect x="50" y="79" width="20" height="14" rx="5" fill="#F5C5A3"/>
-        <path d="M30,91 C27,101 25,116 25,119 L95,119 C95,116 93,101 90,91Z" fill="#D4AF37"/>
-        <path d="M28,98 C18,86 12,73 20,63" stroke="#7A0019" stroke-width="7" fill="none" stroke-linecap="round"/>
-        <line x1="28" y1="99"  x2="12"  y2="151" stroke="#F5C5A3" stroke-width="10" stroke-linecap="round"/>
-        <line x1="92" y1="99"  x2="108" y2="151" stroke="#F5C5A3" stroke-width="10" stroke-linecap="round"/>
-        <ellipse cx="10"  cy="158" rx="7" ry="9" fill="#F5C5A3"/>
-        <ellipse cx="110" cy="158" rx="7" ry="9" fill="#F5C5A3"/>
-        <path d="M25,119 C20,166 18,201 20,240 L100,240 C102,201 100,166 95,119Z" fill="#7A0019"/>
-        <path d="M20,240 L100,240" stroke="#D4AF37" stroke-width="5"/>
-        <path d="M20,240 C18,201 20,166 25,119" stroke="#D4AF37" stroke-width="2.5"/>
-        <path d="M100,240 C102,201 100,166 95,119" stroke="#D4AF37" stroke-width="2.5"/>
-      </svg>
+    <div class="proposal-couple" style="justify-content:center;align-items:flex-end;padding:20px 0;gap:20px;">
+      <img src="bride.png" alt="Shanmukhi" class="couple-photo-hero">
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:12px;gap:6px;">
+        <span class="ring-anim" style="font-size:2.4rem;filter:drop-shadow(0 0 14px #D4AF37);">💍</span>
+        <div style="width:1px;height:40px;background:linear-gradient(to bottom,transparent,rgba(212,175,55,.6),transparent);"></div>
+      </div>
+      <img src="Groom.png" alt="Pavan" class="couple-photo-hero">
     </div>
-
     <p class="proposal-quote reveal">
       "Every beautiful story has a moment<br>where two paths become one —<br>
       <em>this is ours.</em>"
@@ -944,69 +1107,16 @@
     <!-- Bride Card -->
     <div class="char-card reveal-left">
       <div class="card-head bride-head">
-        <div class="char-svg-wrap" title="Hover to wave!">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 240">
-            <ellipse cx="60" cy="50" rx="30" ry="34" fill="#1a1a2e"/>
-            <ellipse cx="60" cy="18" rx="17" ry="14" fill="#1a1a2e"/>
-            <circle cx="44" cy="11" r="4"   fill="white"/><circle cx="44" cy="11" r="1.8" fill="#FFE44D"/>
-            <circle cx="53" cy="5"  r="3.5" fill="white"/><circle cx="53" cy="5"  r="1.5" fill="#FFE44D"/>
-            <circle cx="62" cy="3"  r="4.2" fill="white"/><circle cx="62" cy="3"  r="1.8" fill="#FFE44D"/>
-            <circle cx="71" cy="5"  r="3.5" fill="white"/><circle cx="71" cy="5"  r="1.5" fill="#FFE44D"/>
-            <circle cx="80" cy="11" r="4"   fill="white"/><circle cx="80" cy="11" r="1.8" fill="#FFE44D"/>
-            <ellipse cx="60" cy="53" rx="26" ry="30" fill="#F5C5A3"/>
-            <path d="M34,45 Q60,28 86,45 L86,53 Q60,36 34,53Z" fill="#1a1a2e"/>
-            <circle cx="60" cy="40" r="3.2" fill="#CC0000"/>
-            <ellipse cx="48" cy="54" rx="8.5" ry="7.5" fill="white"/>
-            <circle  cx="48" cy="54" r="5"   fill="#4a2800"/>
-            <circle  cx="48" cy="54" r="3"   fill="#1a0800"/>
-            <circle  cx="51" cy="51" r="1.5" fill="white"/>
-            <path d="M39,49 Q48,44 57,49" stroke="#111" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-            <ellipse cx="72" cy="54" rx="8.5" ry="7.5" fill="white"/>
-            <circle  cx="72" cy="54" r="5"   fill="#4a2800"/>
-            <circle  cx="72" cy="54" r="3"   fill="#1a0800"/>
-            <circle  cx="75" cy="51" r="1.5" fill="white"/>
-            <path d="M63,49 Q72,44 81,49" stroke="#111" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-            <ellipse cx="37" cy="62" rx="7" ry="4" fill="#FFB6C1" opacity=".4"/>
-            <ellipse cx="83" cy="62" rx="7" ry="4" fill="#FFB6C1" opacity=".4"/>
-            <path d="M57,65 Q60,70 63,65" stroke="#E0A882" stroke-width="1" fill="none"/>
-            <path d="M52,73 Q60,81 68,73 Q60,77 52,73Z" fill="#D4607A"/>
-            <circle cx="34" cy="58" r="3.5" fill="#D4AF37"/>
-            <line  x1="34" y1="62" x2="34" y2="73" stroke="#D4AF37" stroke-width="1.5"/>
-            <circle cx="34" cy="76" r="3"   fill="#D4AF37"/>
-            <circle cx="86" cy="58" r="3.5" fill="#D4AF37"/>
-            <line  x1="86" y1="62" x2="86" y2="73" stroke="#D4AF37" stroke-width="1.5"/>
-            <circle cx="86" cy="76" r="3"   fill="#D4AF37"/>
-            <rect x="50" y="79" width="20" height="14" rx="5" fill="#F5C5A3"/>
-            <path d="M38,89 Q60,99 82,89" stroke="#D4AF37" stroke-width="1.5" fill="none"/>
-            <circle cx="51" cy="93" r="2.5" fill="#D4AF37"/>
-            <circle cx="60" cy="96" r="3"   fill="#D4AF37"/>
-            <circle cx="69" cy="93" r="2.5" fill="#D4AF37"/>
-            <path d="M30,91 C27,101 25,116 25,119 L95,119 C95,116 93,101 90,91Z" fill="#D4AF37"/>
-            <path d="M28,98 C18,86 12,73 20,63" stroke="#7A0019" stroke-width="7" fill="none" stroke-linecap="round"/>
-            <line x1="28" y1="99"  x2="12"  y2="151" stroke="#F5C5A3" stroke-width="10" stroke-linecap="round"/>
-            <line x1="92" y1="99"  x2="108" y2="151" stroke="#F5C5A3" stroke-width="10" stroke-linecap="round"/>
-            <ellipse cx="13" cy="143" rx="7" ry="3.5" fill="none" stroke="#D4AF37" stroke-width="2"/>
-            <ellipse cx="13" cy="149" rx="7" ry="3.5" fill="none" stroke="#CC0000" stroke-width="2"/>
-            <ellipse cx="10"  cy="158" rx="7" ry="9" fill="#F5C5A3"/>
-            <ellipse cx="110" cy="158" rx="7" ry="9" fill="#F5C5A3"/>
-            <path d="M25,119 C20,166 18,201 20,240 L100,240 C102,201 100,166 95,119Z" fill="#7A0019"/>
-            <line x1="38" y1="119" x2="36" y2="240" stroke="#D4AF37" stroke-width=".8" opacity=".5"/>
-            <line x1="60" y1="119" x2="60" y2="240" stroke="#D4AF37" stroke-width=".8" opacity=".5"/>
-            <line x1="82" y1="119" x2="84" y2="240" stroke="#D4AF37" stroke-width=".8" opacity=".5"/>
-            <path d="M20,240 L100,240" stroke="#D4AF37" stroke-width="5"/>
-            <path d="M20,240 C18,201 20,166 25,119" stroke="#D4AF37" stroke-width="2.5"/>
-            <path d="M100,240 C102,201 100,166 95,119" stroke="#D4AF37" stroke-width="2.5"/>
-          </svg>
-        </div>
+        <div class="char-svg-wrap" title="Shanmukhi"><img src="bride.png" alt="Shanmukhi" class="char-svg-wrap-photo" style="width:100%;height:100%;object-fit:cover;border-radius:8px;"></div>
         <div class="card-name">Shanmukhi</div>
         <div class="card-role">The Bride 💍</div>
       </div>
       <div class="card-body">
         <ul class="fun-facts">
-          <li><span class="fact-icon">🍛</span><div><span class="fact-label">Favourite Food</span>Pesarattu &amp; Mango Pickle</div></li>
-          <li><span class="fact-icon">📚</span><div><span class="fact-label">Hobbies</span>Classical Dance · Reading · Painting</div></li>
+          <li><span class="fact-icon">🍛</span><div><span class="fact-label">Favourite Food</span>Bobbatlu  &amp; Pulihora </div></li>
+          <li><span class="fact-icon">📚</span><div><span class="fact-label">Hobbies</span>Doodling · Reading · Painting</div></li>
           <li><span class="fact-icon">🌟</span><div><span class="fact-label">Dream</span>A home filled with music, laughter &amp; tradition</div></li>
-          <li><span class="fact-icon">🌸</span><div><span class="fact-label">Favourite Flower</span>Jasmine — always in her hair</div></li>
+          <li><span class="fact-icon">🌸</span><div><span class="fact-label">Favourite Flower</span>Frangipani — A Fragrant Dream</div></li>
         </ul>
       </div>
     </div>
@@ -1014,58 +1124,15 @@
     <!-- Groom Card -->
     <div class="char-card reveal-right">
       <div class="card-head groom-head">
-        <div class="char-svg-wrap" title="Hover to wave!">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 240">
-            <path d="M22,116 C19,164 17,201 19,240 L101,240 C103,201 101,164 98,116Z" fill="#FFFDE7"/>
-            <path d="M22,240 C19,201 19,164 22,116" stroke="#D4AF37" stroke-width="3"/>
-            <path d="M98,240 C101,201 101,164 98,116" stroke="#D4AF37" stroke-width="3"/>
-            <path d="M19,240 L101,240" stroke="#D4AF37" stroke-width="5"/>
-            <line x1="38" y1="116" x2="36" y2="240" stroke="#CCC" stroke-width=".8" opacity=".4"/>
-            <line x1="60" y1="116" x2="60" y2="240" stroke="#CCC" stroke-width=".8" opacity=".4"/>
-            <line x1="82" y1="116" x2="84" y2="240" stroke="#CCC" stroke-width=".8" opacity=".4"/>
-            <path d="M20,73 C18,89 18,116 22,116 L98,116 C102,116 102,89 100,73Z" fill="#FFFDE7"/>
-            <path d="M20,73 C18,89 18,116 22,116" stroke="#D4AF37" stroke-width="2.5"/>
-            <path d="M100,73 C102,89 102,116 98,116" stroke="#D4AF37" stroke-width="2.5"/>
-            <path d="M22,111 L98,111" stroke="#D4AF37" stroke-width="3"/>
-            <line x1="60" y1="73" x2="60" y2="111" stroke="#D4AF37" stroke-width="1"/>
-            <circle cx="60" cy="81"  r="2" fill="#D4AF37"/>
-            <circle cx="60" cy="91"  r="2" fill="#D4AF37"/>
-            <circle cx="60" cy="101" r="2" fill="#D4AF37"/>
-            <line x1="22" y1="81"  x2="5"   y2="144" stroke="#D4A878" stroke-width="11" stroke-linecap="round"/>
-            <line x1="98" y1="81"  x2="115" y2="144" stroke="#D4A878" stroke-width="11" stroke-linecap="round"/>
-            <rect x="109" y="138" width="13" height="8" rx="3" fill="#D4AF37"/>
-            <ellipse cx="4"   cy="153" rx="7" ry="9" fill="#D4A878"/>
-            <ellipse cx="116" cy="153" rx="7" ry="9" fill="#D4A878"/>
-            <rect x="50" y="58" width="20" height="18" rx="5" fill="#D4A878"/>
-            <ellipse cx="60" cy="39" rx="29" ry="32" fill="#1a1a2e"/>
-            <ellipse cx="60" cy="45" rx="27" ry="29" fill="#D4A878"/>
-            <path d="M33,37 Q60,18 87,37 L87,45 Q60,28 33,45Z" fill="#1a1a2e"/>
-            <path d="M40,32 Q48,27 56,32" stroke="#111" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-            <path d="M64,32 Q72,27 80,32" stroke="#111" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-            <ellipse cx="48" cy="44" rx="9" ry="8" fill="white"/>
-            <circle  cx="48" cy="44" r="5"   fill="#4a2800"/>
-            <circle  cx="48" cy="44" r="3.5" fill="#1a0800"/>
-            <circle  cx="51" cy="41" r="1.8" fill="white"/>
-            <path d="M39,39 Q48,34 57,39" stroke="#111" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-            <ellipse cx="72" cy="44" rx="9" ry="8" fill="white"/>
-            <circle  cx="72" cy="44" r="5"   fill="#4a2800"/>
-            <circle  cx="72" cy="44" r="3.5" fill="#1a0800"/>
-            <circle  cx="75" cy="41" r="1.8" fill="white"/>
-            <path d="M63,39 Q72,34 81,39" stroke="#111" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-            <ellipse cx="37" cy="51" rx="8" ry="5" fill="#F4A460" opacity=".22"/>
-            <ellipse cx="83" cy="51" rx="8" ry="5" fill="#F4A460" opacity=".22"/>
-            <path d="M57,57 Q60,63 63,57" stroke="#C09060" stroke-width="1.2" fill="none"/>
-            <path d="M49,69 Q60,79 71,69 Q60,73 49,69Z" fill="#c06060"/>
-          </svg>
-        </div>
+        <div class="char-svg-wrap" title="Pavan"><img src="Groom.png" alt="Pavan" class="char-svg-wrap-photo" style="width:100%;height:100%;object-fit:cover;border-radius:8px;"></div>
         <div class="card-name">Pavan</div>
         <div class="card-role">The Groom 💍</div>
       </div>
       <div class="card-body">
         <ul class="fun-facts">
-          <li><span class="fact-icon">🍚</span><div><span class="fact-label">Favourite Food</span>Gongura Mutton &amp; Pulihora</div></li>
-          <li><span class="fact-icon">🎸</span><div><span class="fact-label">Hobbies</span>Carnatic Music · Cricket · Photography</div></li>
-          <li><span class="fact-icon">🌟</span><div><span class="fact-label">Dream</span>To travel every temple in India with his family</div></li>
+          <li><span class="fact-icon">🍚</span><div><span class="fact-label">Favourite Food</span>Tomato Pappu &amp; Prawns</div></li>
+          <li><span class="fact-icon">🎸</span><div><span class="fact-label">Hobbies</span>Cycling · Running · Watching Movies</div></li>
+          <li><span class="fact-icon">🌟</span><div><span class="fact-label">Dream</span>Building an electronics startup &amp; beginning a journey of love</div></li>
           <li><span class="fact-icon">☀️</span><div><span class="fact-label">Known For</span>His charming smile &amp; warm laughter</div></li>
         </ul>
       </div>
@@ -1073,53 +1140,7 @@
   </div>
 </section>
 
-<div class="sec-divider">🏮 ✦ 🏮</div>
 
-<!-- ================================================================
-     FAMILY BLESSINGS
-================================================================ -->
-<section id="family-blessings" class="section">
-  <div class="section-title reveal">
-    <h2>Family Blessings</h2>
-    <div class="tel-sub">కుటుంబ ఆశీర్వాదాలు</div>
-    <div class="gold-line"></div>
-  </div>
-
-  <div class="bless-inner">
-    <div class="gold-box reveal">
-      <span class="corner ctL">❖</span>
-      <span class="corner ctR">❖</span>
-      <span class="corner cbL">❖</span>
-      <span class="corner cbR">❖</span>
-      <span class="lamp-icon">🪔</span>
-      <p class="bless-text">
-        "శ్రీ వెంకటేశ్వర స్వామివారి దివ్య ఆశీస్సులతో, మా పెద్దల అనుగ్రహంతో,<br>
-        మేము మా ప్రియమైన పిల్లల నిశ్చితార్థాన్ని ఆనందంగా ప్రకటిస్తున్నాము.<br><br>
-        గులాబీ పువ్వుల మాలలతో మరియు పవిత్ర దీపాల ప్రకాశంతో,<br>
-        రెండు కుటుంబాలు ప్రేమ, సంప్రదాయం మరియు అనంత ఆనందంలో కలుస్తాయి."
-      </p>
-    </div>
-
-    <div class="parents-grid reveal">
-      <div class="parent-fam">
-        <div class="fam-label">🌸 Bride's Family</div>
-        <div class="parent-name">
-          Sri Veera Bhadra Swamy Garu &amp; Smt. SriDevi<br>
-          <span style="font-size:.85rem;color:#888;">[Bride's Father] &amp; [Bride's Mother]</span>
-        </div>
-      </div>
-      <div class="parent-fam">
-        <div class="fam-label">🌿 Groom's Family</div>
-        <div class="parent-name">
-          Sri Venkateshwara Rao Garu &amp; Smt. Mahalaksmi<br>
-          <span style="font-size:.85rem;color:#888;">[Groom's Father] &amp; [Groom's Mother]</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="sec-divider">✨ ✦ ✨</div>
 
 <!-- ================================================================
      ENGAGEMENT CEREMONY
@@ -1155,7 +1176,7 @@
     <div class="tel-sub">నిశ్చితార్థ వేడుక</div>
     <div class="gold-line"></div>
     <p style="font-family:'Dancing Script',cursive;font-size:1.1rem;color:var(--pink);margin-top:10px;">
-      "With the blessings of our families, we joyfully invite you to celebrate our Engagement."
+      "With great joy &amp; the blessings of our beloved families, we warmly invite you to be part of our Engagement Celebration."
     </p>
   </div>
 
@@ -1261,7 +1282,7 @@
       <div class="venue-name-card">
         <div class="v-name">Hotel Sunrise</div>
         <div class="v-address">
-          📍 Agrasen bhawan, near beside of tilottama press, Nehru Nagar, Mill Street, Jeypore, Odisha 764001<br><br>
+          📍 Near Agrasen bhawan, near beside of tilottama press, Nehru Nagar, Mill Street, Jeypore, Odisha 764001<br><br>
         </div>
       </div>
 
@@ -1270,12 +1291,12 @@
         <li><span class="vd-icon">⏰</span> 07:30 AM – Ceremony begins</li>
         <li><span class="vd-icon">🚗</span> Ample parking available on-site</li>
         <li><span class="vd-icon">🍽️</span> Lunch arrangements for all guests</li>
-        <li><span class="vd-icon">🏨</span> Nearby hotels: Hotel Sun, Hotel Anand Palace</li>
+        <li><span class="vd-icon">🏨</span> Nearby hotels: Hotel Signature</li>
         <li><span class="vd-icon">🚉</span> Nearest Railway Station: Jeypore Railway Station (2 km)</li>
       </ul>
 
       <div class="btn-group">
-        <a href="https://maps.google.com/?q=Hotel+Sunrise+Jeypore+Odisha" target="_blank" rel="noopener" class="btn btn-pri">📍 View Directions</a>
+        <a href="https://maps.app.goo.gl/c7QJcwVWPY98vGY98" target="_blank" rel="noopener" class="btn btn-pri">📍 View Directions</a>
         <button class="btn btn-gold" onclick="addToCalendar()">📅 Add to Calendar</button>
       </div>
     </div>
@@ -1297,91 +1318,16 @@
       <span class="bell">🔔</span>
     </div>
 
-    <div class="finale-chars">
-      <!-- Bride -->
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 240">
-        <ellipse cx="60" cy="50" rx="30" ry="34" fill="#1a1a2e"/>
-        <ellipse cx="60" cy="18" rx="17" ry="14" fill="#1a1a2e"/>
-        <circle cx="44" cy="11" r="4"   fill="white"/><circle cx="44" cy="11" r="1.8" fill="#FFE44D"/>
-        <circle cx="53" cy="5"  r="3.5" fill="white"/><circle cx="53" cy="5"  r="1.5" fill="#FFE44D"/>
-        <circle cx="62" cy="3"  r="4.2" fill="white"/><circle cx="62" cy="3"  r="1.8" fill="#FFE44D"/>
-        <circle cx="71" cy="5"  r="3.5" fill="white"/><circle cx="71" cy="5"  r="1.5" fill="#FFE44D"/>
-        <circle cx="80" cy="11" r="4"   fill="white"/><circle cx="80" cy="11" r="1.8" fill="#FFE44D"/>
-        <ellipse cx="60" cy="53" rx="26" ry="30" fill="#F5C5A3"/>
-        <path d="M34,45 Q60,28 86,45 L86,53 Q60,36 34,53Z" fill="#1a1a2e"/>
-        <circle cx="60" cy="40" r="3.2" fill="#CC0000"/>
-        <ellipse cx="48" cy="54" rx="8.5" ry="7.5" fill="white"/>
-        <circle  cx="48" cy="54" r="5"   fill="#4a2800"/>
-        <circle  cx="48" cy="54" r="3"   fill="#1a0800"/>
-        <circle  cx="51" cy="51" r="1.5" fill="white"/>
-        <path d="M39,49 Q48,44 57,49" stroke="#111" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        <ellipse cx="72" cy="54" rx="8.5" ry="7.5" fill="white"/>
-        <circle  cx="72" cy="54" r="5"   fill="#4a2800"/>
-        <circle  cx="72" cy="54" r="3"   fill="#1a0800"/>
-        <circle  cx="75" cy="51" r="1.5" fill="white"/>
-        <path d="M63,49 Q72,44 81,49" stroke="#111" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        <ellipse cx="37" cy="62" rx="7" ry="4" fill="#FFB6C1" opacity=".4"/>
-        <ellipse cx="83" cy="62" rx="7" ry="4" fill="#FFB6C1" opacity=".4"/>
-        <path d="M52,73 Q60,81 68,73 Q60,77 52,73Z" fill="#D4607A"/>
-        <rect x="50" y="79" width="20" height="14" rx="5" fill="#F5C5A3"/>
-        <path d="M30,91 C27,101 25,116 25,119 L95,119 C95,116 93,101 90,91Z" fill="#D4AF37"/>
-        <path d="M28,98 C18,86 12,73 20,63" stroke="#7A0019" stroke-width="7" fill="none" stroke-linecap="round"/>
-        <line x1="28" y1="99"  x2="12"  y2="151" stroke="#F5C5A3" stroke-width="10" stroke-linecap="round"/>
-        <line x1="92" y1="99"  x2="108" y2="151" stroke="#F5C5A3" stroke-width="10" stroke-linecap="round"/>
-        <ellipse cx="10"  cy="158" rx="7" ry="9" fill="#F5C5A3"/>
-        <ellipse cx="110" cy="158" rx="7" ry="9" fill="#F5C5A3"/>
-        <path d="M25,119 C20,166 18,201 20,240 L100,240 C102,201 100,166 95,119Z" fill="#7A0019"/>
-        <path d="M20,240 L100,240" stroke="#D4AF37" stroke-width="5"/>
-        <path d="M20,240 C18,201 20,166 25,119" stroke="#D4AF37" stroke-width="2.5"/>
-        <path d="M100,240 C102,201 100,166 95,119" stroke="#D4AF37" stroke-width="2.5"/>
-      </svg>
-
-      <div style="font-size:2rem;padding-bottom:15px;animation:heartbeat 1.5s ease infinite">❤️</div>
-
-      <!-- Groom -->
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 240">
-        <path d="M22,116 C19,164 17,201 19,240 L101,240 C103,201 101,164 98,116Z" fill="#FFFDE7"/>
-        <path d="M22,240 C19,201 19,164 22,116" stroke="#D4AF37" stroke-width="3"/>
-        <path d="M98,240 C101,201 101,164 98,116" stroke="#D4AF37" stroke-width="3"/>
-        <path d="M19,240 L101,240" stroke="#D4AF37" stroke-width="5"/>
-        <path d="M20,73 C18,89 18,116 22,116 L98,116 C102,116 102,89 100,73Z" fill="#FFFDE7"/>
-        <path d="M20,73 C18,89 18,116 22,116" stroke="#D4AF37" stroke-width="2.5"/>
-        <path d="M100,73 C102,89 102,116 98,116" stroke="#D4AF37" stroke-width="2.5"/>
-        <path d="M22,111 L98,111" stroke="#D4AF37" stroke-width="3"/>
-        <line x1="60" y1="73" x2="60" y2="111" stroke="#D4AF37" stroke-width="1"/>
-        <circle cx="60" cy="81"  r="2" fill="#D4AF37"/>
-        <circle cx="60" cy="91"  r="2" fill="#D4AF37"/>
-        <circle cx="60" cy="101" r="2" fill="#D4AF37"/>
-        <line x1="22" y1="81"  x2="5"   y2="144" stroke="#D4A878" stroke-width="11" stroke-linecap="round"/>
-        <line x1="98" y1="81"  x2="115" y2="144" stroke="#D4A878" stroke-width="11" stroke-linecap="round"/>
-        <ellipse cx="4"   cy="153" rx="7" ry="9" fill="#D4A878"/>
-        <ellipse cx="116" cy="153" rx="7" ry="9" fill="#D4A878"/>
-        <rect x="50" y="58" width="20" height="18" rx="5" fill="#D4A878"/>
-        <ellipse cx="60" cy="39" rx="29" ry="32" fill="#1a1a2e"/>
-        <ellipse cx="60" cy="45" rx="27" ry="29" fill="#D4A878"/>
-        <path d="M33,37 Q60,18 87,37 L87,45 Q60,28 33,45Z" fill="#1a1a2e"/>
-        <path d="M40,32 Q48,27 56,32" stroke="#111" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-        <path d="M64,32 Q72,27 80,32" stroke="#111" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-        <ellipse cx="48" cy="44" rx="9" ry="8" fill="white"/>
-        <circle  cx="48" cy="44" r="5"   fill="#4a2800"/>
-        <circle  cx="48" cy="44" r="3.5" fill="#1a0800"/>
-        <circle  cx="51" cy="41" r="1.8" fill="white"/>
-        <path d="M39,39 Q48,34 57,39" stroke="#111" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        <ellipse cx="72" cy="44" rx="9" ry="8" fill="white"/>
-        <circle  cx="72" cy="44" r="5"   fill="#4a2800"/>
-        <circle  cx="72" cy="44" r="3.5" fill="#1a0800"/>
-        <circle  cx="75" cy="41" r="1.8" fill="white"/>
-        <path d="M63,39 Q72,34 81,39" stroke="#111" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        <path d="M49,69 Q60,79 71,69 Q60,73 49,69Z" fill="#c06060"/>
-      </svg>
+    <div class="finale-chars" style="gap:20px;align-items:flex-end;">
+      <img src="bride.png" alt="Shanmukhi" class="finale-couple-photo">
+      <img src="Groom.png" alt="Pavan" class="finale-couple-photo">
     </div>
-
     <p class="finale-q1 reveal">
       "Your presence will make our celebration complete.<br>
       See you at our engagement! 🌸"
     </p>
     <p class="finale-q2 reveal">"With Love and Blessings —"</p>
-    <div class="finale-names">Shanmukhi ❤️ Pavan</div>
+    <div class="finale-names">Shanmukhi <span class="ring-anim">💍</span> Pavan</div>
     <p class="finale-bless">Wednesday · 24 June 2026 · Hotel Sunrise · Jeypore, Odisha</p>
     <div style="margin-top:30px;font-size:1.3rem;opacity:.6">🌺 🪔 💍 🪔 🌺</div>
   </div>
@@ -1392,10 +1338,10 @@
 ================================================================ -->
 <footer>
   <div class="f-logo">నిశ్చితార్థ మహోత్సవం</div>
-  <p>Shanmukhi ❤️ Pavan &nbsp;|&nbsp; 24 June 2026 &nbsp;|&nbsp; Jeypore, Odisha</p>
+  <p>Shanmukhi 💍 Pavan &nbsp;|&nbsp; 24 June 2026 &nbsp;|&nbsp; Jeypore, Odisha</p>
   <p style="margin-top:8px">
     Made with 💛 &amp; 🌸 &nbsp;|&nbsp;
-    <a href="https://maps.google.com/?q=Hotel+Sunrise+Jeypore+Odisha" target="_blank" rel="noopener">Get Directions</a>
+    <a href="https://maps.app.goo.gl/c7QJcwVWPY98vGY98" target="_blank" rel="noopener">Get Directions</a>
   </p>
 </footer>
 
@@ -1407,15 +1353,26 @@
    LOADING SCREEN
 ============================================================ */
 document.body.style.overflow = 'hidden';
-const loadingScreen = document.getElementById('loading-screen');
 
-setTimeout(() => {
-  loadingScreen.classList.add('fade-out');
-  setTimeout(() => {
-    loadingScreen.style.display = 'none';
-    document.body.style.overflow = '';
-  }, 1200);
-}, 5000);
+function openCard() {
+  var cover = document.getElementById('card-cover');
+  if (!cover || cover.classList.contains('open')) return;
+  cover.classList.add('open');
+  /* Fade out loading screen after flap animation completes */
+  setTimeout(function() {
+    var ls = document.getElementById('loading-screen');
+    if (ls) {
+      ls.classList.add('fade-out');
+      setTimeout(function() {
+        ls.style.display = 'none';
+        document.body.style.overflow = '';
+      }, 1200);
+    }
+  }, 1100);
+}
+
+/* Auto-open fallback after 30s */
+setTimeout(openCard, 30000);
 
 /* ============================================================
    NAVIGATION SCROLL EFFECT
@@ -1680,138 +1637,22 @@ function addToCalendar() {
 <!-- ================================================================
      FLOATING MUSIC BUTTON
 ================================================================ -->
-<div id="music-fab" onclick="toggleBgMusic()" title="Toggle Background Music">
+<audio id="bg-audio" loop preload="auto">
+  <source src="Best%20Telugu%20Wedding%20Invitation%20Video%20Contact%209640634617%20%5BPNJrnG_Oclo%5D.mp3" type="audio/mpeg">
+</audio>
+
+<div id="music-fab" onclick="toggleBgMusic()" title="Toggle Music">
   <span id="music-icon">🎵</span>
   <span id="music-lbl">Music</span>
 </div>
 
 <script>
 /* ================================================================
-   BACKGROUND MUSIC
-   Web Audio API — Indian tanpura drone + Kharaharapriya melodic
-   phrases. Runs entirely in the browser, no network needed.
-   Key: D  |  Scale: Sa Ri Ga Ma Pa Dha Ni (D Dorian / Kharaharapriya)
+   BACKGROUND MUSIC — plays from local MP3 file
 ================================================================ */
-(function () {
-  var ctx = null, masterVol = null, running = false, built = false;
-
-  /* Synthesise a short reverb impulse response */
-  function makeReverb(dur, decay) {
-    var len = Math.floor(ctx.sampleRate * dur);
-    var buf = ctx.createBuffer(2, len, ctx.sampleRate);
-    for (var c = 0; c < 2; c++) {
-      var d = buf.getChannelData(c);
-      for (var i = 0; i < len; i++)
-        d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, decay);
-    }
-    var node = ctx.createConvolver();
-    node.buffer = buf;
-    return node;
-  }
-
-  /* Continuous drone oscillator with optional tremolo LFO */
-  function addDrone(freq, gain, type, lfoHz, lfoDepth) {
-    var osc = ctx.createOscillator();
-    var g   = ctx.createGain();
-    osc.type = type || 'triangle';
-    osc.frequency.value = freq;
-    osc.detune.value = (Math.random() - 0.5) * 9; /* slight warmth */
-    g.gain.value = gain;
-    osc.connect(g);
-    g.connect(masterVol);
-    osc.start();
-    if (lfoHz) {
-      var lfo = ctx.createOscillator();
-      var lg  = ctx.createGain();
-      lfo.frequency.value = lfoHz;
-      lg.gain.value = lfoDepth;
-      lfo.connect(lg);
-      lg.connect(g.gain);
-      lfo.start();
-    }
-  }
-
-  /* Short melodic note with natural attack/decay envelope */
-  function pluck(freq, when, dur, vol) {
-    var osc = ctx.createOscillator();
-    var env = ctx.createGain();
-    osc.type = 'triangle';
-    osc.frequency.value = freq;
-    env.gain.setValueAtTime(0, when);
-    env.gain.linearRampToValueAtTime(vol, when + 0.05);
-    env.gain.setValueAtTime(vol * 0.65, when + dur * 0.5);
-    env.gain.exponentialRampToValueAtTime(0.0001, when + dur);
-    osc.connect(env);
-    env.connect(masterVol);
-    osc.start(when);
-    osc.stop(when + dur + 0.1);
-  }
-
-  /* Kharaharapriya (D Dorian) — used in Telugu wedding compositions */
-  var SCALE = [
-    146.83, 164.81, 174.61, 196.00, 220.00, 246.94, 261.63,
-    293.66, 329.63, 349.23, 392.00, 440.00, 493.88, 523.25
-  ];
-
-  function scheduleMelody() {
-    if (!running || !ctx) return;
-    var now  = ctx.currentTime;
-    var gap  = 4.5 + Math.random() * 5;
-    var nLen = 3 + Math.floor(Math.random() * 5);
-    var base = 3 + Math.floor(Math.random() * 5);
-    var asc  = Math.random() > 0.35;
-    for (var i = 0; i < nLen; i++) {
-      var idx = asc ? base + i : base + nLen - 1 - i;
-      if (idx < SCALE.length)
-        pluck(SCALE[idx], now + gap + i * 0.43, 0.5 + Math.random() * 0.3, 0.062);
-    }
-    setTimeout(scheduleMelody, (gap + nLen * 0.43 + 3) * 1000);
-  }
-
-  function build() {
-    ctx       = new (window.AudioContext || window.webkitAudioContext)();
-    masterVol = ctx.createGain();
-    masterVol.gain.setValueAtTime(0, ctx.currentTime);
-
-    var rev = makeReverb(2.2, 3.0);
-    var wet = ctx.createGain(); wet.gain.value = 0.30;
-    var dry = ctx.createGain(); dry.gain.value = 0.70;
-    masterVol.connect(dry); dry.connect(ctx.destination);
-    masterVol.connect(rev); rev.connect(wet); wet.connect(ctx.destination);
-
-    /* Sa-Pa tanpura drone in key of D */
-    addDrone(146.83, 0.10, 'triangle', 0.22, 0.006); /* D3 — Sa      */
-    addDrone(220.00, 0.07, 'triangle', 0.18, 0.005); /* A3 — Pa      */
-    addDrone(293.66, 0.14, 'triangle', 0.20, 0.008); /* D4 — Sa      */
-    addDrone(440.00, 0.06, 'sine',     0.16, 0.004); /* A4 — Pa      */
-    addDrone(587.33, 0.04, 'sine',     0.14, 0.003); /* D5 — high Sa */
-    addDrone(880.00, 0.02, 'sine',     0,    0);      /* harmonic     */
-
-    running = true;
-    built   = true;
-    masterVol.gain.linearRampToValueAtTime(0.22, ctx.currentTime + 3);
-    scheduleMelody();
-  }
-
-  window.startBgMusic = function () {
-    if (!built) { build(); return; }
-    if (ctx.state === 'suspended') ctx.resume();
-    running = true;
-    masterVol.gain.cancelScheduledValues(ctx.currentTime);
-    masterVol.gain.linearRampToValueAtTime(0.22, ctx.currentTime + 1.5);
-  };
-
-  window.stopBgMusic = function () {
-    running = false;
-    if (ctx && masterVol) {
-      masterVol.gain.cancelScheduledValues(ctx.currentTime);
-      masterVol.gain.linearRampToValueAtTime(0, ctx.currentTime + 1.5);
-    }
-  };
-})();
-
-/* ---- auto-start on first user interaction ---- */
 var bgOn = false, autoStarted = false;
+var bgAudio = document.getElementById('bg-audio');
+bgAudio.volume = 0.65;
 
 function _autoStart() {
   if (autoStarted) return;
@@ -1819,25 +1660,24 @@ function _autoStart() {
   bgOn = true;
   document.getElementById('music-icon').textContent = '🎵';
   document.getElementById('music-fab').classList.add('playing');
-  window.startBgMusic();
+  bgAudio.play().catch(function(){});
 }
 document.addEventListener('click',      _autoStart, { once: true });
 document.addEventListener('touchstart', _autoStart, { once: true, passive: true });
 document.addEventListener('keydown',    _autoStart, { once: true });
 document.addEventListener('scroll',     _autoStart, { once: true, passive: true });
 
-/* ---- FAB button — manual pause / resume ---- */
 function toggleBgMusic() {
   var icon = document.getElementById('music-icon');
   var fab  = document.getElementById('music-fab');
   autoStarted = true;
   if (bgOn) {
-    window.stopBgMusic();
+    bgAudio.pause();
     bgOn = false;
     icon.textContent = '🔇';
     fab.classList.remove('playing');
   } else {
-    window.startBgMusic();
+    bgAudio.play().catch(function(){});
     bgOn = true;
     icon.textContent = '🎵';
     fab.classList.add('playing');
