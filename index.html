@@ -367,7 +367,7 @@
        VENUE
     ============================================================ */
     #venue { background: linear-gradient(135deg,#fff8e1,#f5f5dc); }
-    .venue-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 900px; margin: 0 auto; align-items: start; }
+    .venue-grid { display: block; max-width: 600px; margin: 0 auto; }
     .venue-illo {
       background: linear-gradient(135deg,var(--deep-maroon),#3d0020);
       border-radius: 20px; overflow: hidden; min-height: 380px;
@@ -510,6 +510,43 @@
     .sec-divider { text-align: center; padding: 16px; font-size: 1.3rem; color: var(--gold); opacity: .4; }
 
     /* ============================================================
+       JOURNEY TO OUR CELEBRATION SECTION
+    ============================================================ */
+    #journey {
+      background: radial-gradient(ellipse at 50% 30%, #220015 0%, #0e001b 45%, #0a1208 100%);
+      color: #fff; text-align: center; position: relative; overflow: hidden;
+    }
+    #journey .section-title h2 { color: var(--gold); }
+    #journey .tel-sub           { color: var(--pink); }
+    .journey-inner { max-width: 580px; margin: 0 auto; position: relative; z-index: 1; }
+    .journey-scratch-prompt {
+      font-family: 'Dancing Script', cursive; font-size: 1.15rem;
+      color: var(--pink); margin-bottom: 28px; opacity: .85; letter-spacing: .5px;
+    }
+    .journey-card-wrap {
+      position: relative; display: inline-block; cursor: crosshair;
+    }
+    .journey-date-reveal {
+      background: linear-gradient(135deg, rgba(212,175,55,.13), rgba(255,255,255,.05));
+      border: 1px solid rgba(212,175,55,.4); border-radius: 22px;
+      padding: 48px 72px; backdrop-filter: blur(10px); user-select: none;
+    }
+    .jd-day   { font-family: 'Dancing Script', cursive; font-size: 1.35rem; color: var(--pink); margin-bottom: 10px; }
+    .jd-date  { font-family: 'Cinzel Decorative', serif; font-size: 5.5rem; color: var(--gold); line-height: 1; text-shadow: 0 0 40px rgba(212,175,55,.7); }
+    .jd-month { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #fff; margin-top: 10px; letter-spacing: 4px; }
+    .jd-place { font-size: .78rem; color: rgba(255,255,255,.5); letter-spacing: 3px; text-transform: uppercase; margin-top: 10px; }
+    #journey-scratch-canvas {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      border-radius: 22px; touch-action: none; cursor: crosshair;
+    }
+    #journey-countdown { transition: opacity .8s ease; }
+    @media (max-width: 480px) {
+      .journey-date-reveal { padding: 32px 36px; }
+      .jd-date  { font-size: 3.8rem; }
+      .jd-month { font-size: 1.1rem; }
+    }
+
+    /* ============================================================
        SCROLLBAR
     ============================================================ */
     ::-webkit-scrollbar { width: 7px; }
@@ -527,7 +564,7 @@
       .section         { padding: 60px 18px; }
       .section-title   { margin-bottom: 36px; }
       .parents-grid    { grid-template-columns: 1fr; }
-      .venue-grid      { grid-template-columns: 1fr; }
+      /* .venue-grid responsive — already block */
       .cd-val          { font-size: 2rem; }
       .cd-unit         { min-width: 64px; }
       .ld-bride, .ld-groom { width: 52px; }
@@ -822,7 +859,7 @@
         <div class="ec-names">Shanmukhi <span class="ring-anim">💍</span> Pavan</div>
         <div class="ec-hr"></div>
         <div class="ec-date">Wednesday · 24 June 2026</div>
-        <div class="ec-venue">Hotel Sunrise · Jeypore, Odisha</div>
+        <div class="ec-venue">Hotel The Square · Jeypore, Odisha</div>
       </div>
 
       <!-- Animated envelope flap (folds back on tap) -->
@@ -1001,6 +1038,7 @@
   <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
   <ul class="nav-links">
     <li><a href="#meet-couple">The Couple</a></li>
+    <li><a href="#journey">Our Special Day</a></li>
     <li><a href="#ceremony">Ceremony</a></li>
     <li><a href="#venue">Venue</a></li>
   </ul>
@@ -1143,6 +1181,45 @@
 
 
 <!-- ================================================================
+     OUR SPECIAL DAY
+================================================================ -->
+<section id="journey" class="section">
+  <div class="section-title reveal">
+    <h2>Our Special Day</h2>
+    <div class="tel-sub">మన ప్రత్యేక రోజు</div>
+    <div class="gold-line"></div>
+  </div>
+
+  <div class="journey-inner">
+    <p class="journey-scratch-prompt reveal">✦ Scratch to reveal our special date ✦</p>
+    <div class="journey-card-wrap reveal" style="transition-delay:.2s">
+      <div class="journey-date-reveal" id="journey-date-card">
+        <div class="jd-day">Wednesday</div>
+        <div class="jd-date">24</div>
+        <div class="jd-month">June · 2026</div>
+        <div class="jd-place">Jeypore, Odisha</div>
+      </div>
+      <canvas id="journey-scratch-canvas"></canvas>
+    </div>
+
+    <div id="journey-countdown" class="countdown-wrap" style="display:none;opacity:0;margin-top:40px;">
+      <p class="cd-title">✨ Counting the Moments Until We Celebrate Together ✨</p>
+      <div class="countdown">
+        <div class="cd-unit"><div class="cd-val" id="days">--</div><div class="cd-lbl">Days</div></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-unit"><div class="cd-val" id="hours">--</div><div class="cd-lbl">Hours</div></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-unit"><div class="cd-val" id="mins">--</div><div class="cd-lbl">Minutes</div></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-unit"><div class="cd-val" id="secs">--</div><div class="cd-lbl">Seconds</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sec-divider">✨ ✦ ✨</div>
+
+<!-- ================================================================
      ENGAGEMENT CEREMONY
 ================================================================ -->
 <section id="ceremony" class="section">
@@ -1213,19 +1290,6 @@
     </div>
   </div>
 
-  <!-- Countdown -->
-  <div class="countdown-wrap reveal">
-    <p class="cd-title">✨ Counting the Moments Until We Celebrate Together ✨</p>
-    <div class="countdown">
-      <div class="cd-unit"><div class="cd-val" id="days">--</div><div class="cd-lbl">Days</div></div>
-      <div class="cd-sep">:</div>
-      <div class="cd-unit"><div class="cd-val" id="hours">--</div><div class="cd-lbl">Hours</div></div>
-      <div class="cd-sep">:</div>
-      <div class="cd-unit"><div class="cd-val" id="mins">--</div><div class="cd-lbl">Minutes</div></div>
-      <div class="cd-sep">:</div>
-      <div class="cd-unit"><div class="cd-val" id="secs">--</div><div class="cd-lbl">Seconds</div></div>
-    </div>
-  </div>
 </section>
 
 <div class="sec-divider">🗺️ ✦ 🗺️</div>
@@ -1235,54 +1299,18 @@
 ================================================================ -->
 <section id="venue" class="section">
   <div class="section-title reveal">
-    <h2>Your Journey to Our Celebration</h2>
+    <h2>Venue &amp; Directions</h2>
     <div class="tel-sub">వేడుక స్థలం</div>
     <div class="gold-line"></div>
   </div>
 
   <div class="venue-grid">
-    <!-- Illustrated venue panel -->
-    <div class="venue-illo reveal-left">
-      <svg viewBox="0 0 320 380" xmlns="http://www.w3.org/2000/svg" style="width:100%;padding:20px">
-        <!-- Road / path -->
-        <path d="M160,380 L160,280 Q160,260 180,250 L240,230 Q280,220 290,200" stroke="#D4AF37" stroke-width="4" fill="none" stroke-dasharray="10,6" opacity=".7"/>
-        <!-- Venue building -->
-        <rect x="60"  y="100" width="200" height="160" rx="5" fill="rgba(212,175,55,.15)" stroke="#D4AF37" stroke-width="1.5"/>
-        <!-- Entrance arch -->
-        <path d="M120,260 L120,180 Q160,155 200,180 L200,260Z" fill="rgba(212,175,55,.2)" stroke="#D4AF37" stroke-width="1.5"/>
-        <!-- Pillars -->
-        <rect x="70"  y="105" width="18" height="155" fill="rgba(212,175,55,.3)" stroke="#D4AF37" stroke-width="1"/>
-        <rect x="232" y="105" width="18" height="155" fill="rgba(212,175,55,.3)" stroke="#D4AF37" stroke-width="1"/>
-        <!-- Roof -->
-        <polygon points="45,100 160,50 275,100" fill="rgba(212,175,55,.25)" stroke="#D4AF37" stroke-width="1.5"/>
-        <!-- Kalash on top -->
-        <ellipse cx="160" cy="50" rx="12" ry="8" fill="#D4AF37"/>
-        <rect    x="155" y="40" width="10" height="12" fill="#D4AF37"/>
-        <ellipse cx="160" cy="40" rx="8"  ry="5" fill="#D4AF37"/>
-        <!-- Windows -->
-        <rect x="85"  y="130" width="35" height="35" rx="3" fill="rgba(212,175,55,.2)" stroke="#D4AF37" stroke-width="1"/>
-        <rect x="200" y="130" width="35" height="35" rx="3" fill="rgba(212,175,55,.2)" stroke="#D4AF37" stroke-width="1"/>
-        <!-- Lamps flanking entrance -->
-        <circle cx="115" cy="183" r="7" fill="#D4AF37" opacity=".8"/>
-        <circle cx="205" cy="183" r="7" fill="#D4AF37" opacity=".8"/>
-        <!-- Text labels -->
-        <text x="160" y="318" text-anchor="middle" fill="#D4AF37" font-size="11" font-family="Lato,sans-serif" letter-spacing="1">Hotel Sunrise</text>
-        <!-- Route icons -->
-        <text x="255" y="208" fill="#D4AF37" font-size="14">🚗</text>
-        <text x="180" y="256" fill="#D4AF37" font-size="14">📸</text>
-        <text x="138" y="198" fill="#D4AF37" font-size="14">💍</text>
-        <!-- Marigold garlands (decorative lines) -->
-        <path d="M60,100 Q90,90 120,100" stroke="#e67e00" stroke-width="3" fill="none" opacity=".6"/>
-        <path d="M200,100 Q230,90 260,100" stroke="#e67e00" stroke-width="3" fill="none" opacity=".6"/>
-      </svg>
-    </div>
-
     <!-- Venue info -->
-    <div class="venue-info reveal-right">
+    <div class="venue-info reveal">
       <div class="venue-name-card">
-        <div class="v-name">Hotel Sunrise</div>
+        <div class="v-name">Hotel The Square Jeypore</div>
         <div class="v-address">
-          📍 Near Agrasen bhawan, beside of tilottama press, Nehru Nagar, Mill Street, Jeypore, Odisha 764001<br><br>
+          📍 Bell Rd, Bharat Nagar, Mill Street, Jeypore, Odisha 764001
         </div>
       </div>
 
@@ -1291,12 +1319,12 @@
         <li><span class="vd-icon">⏰</span> 07:30 AM – Ceremony begins</li>
         <li><span class="vd-icon">🚗</span> Ample parking available on-site</li>
         <li><span class="vd-icon">🍽️</span> Lunch arrangements for all guests</li>
-        <li><span class="vd-icon">🏨</span> Nearby hotels: Hotel Signature</li>
+        <li><span class="vd-icon">🧭</span> Jeypore city centre, easy to find</li>
         <li><span class="vd-icon">🚉</span> Nearest Railway Station: Jeypore Railway Station (2 km)</li>
       </ul>
 
       <div class="btn-group">
-        <a href="https://maps.app.goo.gl/c7QJcwVWPY98vGY98" target="_blank" rel="noopener" class="btn btn-pri">📍 View Directions</a>
+        <a href="https://maps.app.goo.gl/vPSxkNKwQXMEZ9cbA" target="_blank" rel="noopener" class="btn btn-pri">📍 View Directions</a>
         <button class="btn btn-gold" onclick="addToCalendar()">📅 Add to Calendar</button>
       </div>
     </div>
@@ -1328,7 +1356,7 @@
     </p>
     <p class="finale-q2 reveal">"With Love and Blessings —"</p>
     <div class="finale-names">Shanmukhi <span class="ring-anim">💍</span> Pavan</div>
-    <p class="finale-bless">Wednesday · 24 June 2026 · Hotel Sunrise · Jeypore, Odisha</p>
+    <p class="finale-bless">Wednesday · 24 June 2026 · Hotel The Square · Jeypore, Odisha</p>
     <div style="margin-top:30px;font-size:1.3rem;opacity:.6">🌺 🪔 💍 🪔 🌺</div>
   </div>
 </section>
@@ -1341,8 +1369,8 @@
   <p>Shanmukhi 💍 Pavan &nbsp;|&nbsp; 24 June 2026 &nbsp;|&nbsp; Jeypore, Odisha</p>
   <p style="margin-top:8px">
     Made with 💛 &amp; 🌸 &nbsp;|&nbsp;
-    <a href="https://maps.app.goo.gl/c7QJcwVWPY98vGY98" target="_blank" rel="noopener">Get Directions</a>
-  </p>
+    <a href="" target="_blank" rel="noopener">Get Directions</a>
+  </p>https://maps.app.goo.gl/vPSxkNKwQXMEZ9cbA
 </footer>
 
 <!-- ================================================================
@@ -1628,10 +1656,132 @@ function addToCalendar() {
   const start = '20260624T073000';
   const end   = '20260624T133000';
   const text  = encodeURIComponent('Shanmukhi & Pavan - Engagement Ceremony');
-  const loc   = encodeURIComponent('Hotel Sunrise, Jeypore, Odisha');
+  const loc   = encodeURIComponent('Hotel The Square, Jeypore, Odisha');
   const url   = `https://www.google.com/calendar/render?action=TEMPLATE&text=${text}&dates=${start}/${end}&location=${loc}`;
   window.open(url, '_blank', 'noopener,noreferrer');
 }
+
+/* ============================================================
+   JOURNEY — SCRATCH DATE REVEAL + COUNTDOWN
+============================================================ */
+(function() {
+  function initJourneyScratch() {
+    var canvas   = document.getElementById('journey-scratch-canvas');
+    var dateCard = document.getElementById('journey-date-card');
+    if (!canvas || !dateCard) return;
+
+    var rect = dateCard.getBoundingClientRect();
+    canvas.width  = rect.width  || 320;
+    canvas.height = rect.height || 200;
+
+    var ctx        = canvas.getContext('2d');
+    var scratching = false;
+    var revealed   = false;
+    var strokeCnt  = 0;
+
+    /* — Gold foil overlay with mandala pattern — */
+    (function drawOverlay() {
+      ctx.globalCompositeOperation = 'source-over';
+      var g = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+      g.addColorStop(0,   '#6B4F00');
+      g.addColorStop(0.3, '#D4AF37');
+      g.addColorStop(0.6, '#B8860B');
+      g.addColorStop(1,   '#7A5500');
+      ctx.fillStyle = g;
+      var r = 22, w = canvas.width, h = canvas.height;
+      ctx.beginPath();
+      ctx.moveTo(r, 0); ctx.lineTo(w - r, 0);
+      ctx.quadraticCurveTo(w, 0, w, r);
+      ctx.lineTo(w, h - r);
+      ctx.quadraticCurveTo(w, h, w - r, h);
+      ctx.lineTo(r, h);
+      ctx.quadraticCurveTo(0, h, 0, h - r);
+      ctx.lineTo(0, r);
+      ctx.quadraticCurveTo(0, 0, r, 0);
+      ctx.closePath();
+      ctx.fill();
+      /* decorative radial lines */
+      var cx = w / 2, cy = h / 2, maxR = Math.min(w, h) * 0.38;
+      ctx.globalAlpha = 0.16;
+      ctx.strokeStyle = '#fff'; ctx.lineWidth = 1;
+      for (var i = 0; i < 8; i++) {
+        var a = (Math.PI * 2 / 8) * i;
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.lineTo(cx + Math.cos(a) * maxR, cy + Math.sin(a) * maxR);
+        ctx.stroke();
+      }
+      ctx.beginPath(); ctx.arc(cx, cy, maxR * 0.55, 0, Math.PI * 2); ctx.stroke();
+      ctx.globalAlpha = 1;
+      /* hint text */
+      ctx.fillStyle    = 'rgba(255,255,255,0.93)';
+      ctx.font         = 'bold 14px Lato, sans-serif';
+      ctx.textAlign    = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('\u2736  Scratch to Reveal the Date  \u2736', cx, cy);
+    })();
+
+    function getPos(e) {
+      var r  = canvas.getBoundingClientRect();
+      var sx = canvas.width  / r.width;
+      var sy = canvas.height / r.height;
+      var s  = (e.touches && e.touches[0]) ? e.touches[0] : e;
+      return { x: (s.clientX - r.left) * sx, y: (s.clientY - r.top) * sy };
+    }
+
+    function doScratch(pos) {
+      if (revealed) return;
+      ctx.globalCompositeOperation = 'destination-out';
+      ctx.beginPath();
+      ctx.arc(pos.x, pos.y, 34, 0, Math.PI * 2);
+      ctx.fill();
+      strokeCnt++;
+      if (strokeCnt % 6 === 0) checkReveal();
+    }
+
+    function checkReveal() {
+      var data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+      var cleared = 0;
+      for (var i = 3; i < data.length; i += 16) {
+        if (data[i] < 64) cleared++;
+      }
+      if (cleared / (canvas.width * canvas.height / 4) > 0.42) revealFull();
+    }
+
+    function revealFull() {
+      if (revealed) return;
+      revealed = true;
+      canvas.style.transition = 'opacity 0.7s ease';
+      canvas.style.opacity    = '0';
+      var prompt = document.querySelector('.journey-scratch-prompt');
+      if (prompt) {
+        prompt.style.transition = 'opacity 0.5s';
+        prompt.style.opacity    = '0';
+        setTimeout(function() { prompt.style.display = 'none'; }, 600);
+      }
+      setTimeout(function() {
+        canvas.remove();
+        var cd = document.getElementById('journey-countdown');
+        if (cd) {
+          cd.style.display = 'block';
+          requestAnimationFrame(function() {
+            requestAnimationFrame(function() { cd.style.opacity = '1'; });
+          });
+        }
+      }, 750);
+    }
+
+    canvas.addEventListener('mousedown',  function(e) { scratching = true;  doScratch(getPos(e)); });
+    window.addEventListener('mouseup',    function()  { scratching = false; });
+    canvas.addEventListener('mousemove',  function(e) { if (scratching) doScratch(getPos(e)); });
+    canvas.addEventListener('touchstart', function(e) { scratching = true;  doScratch(getPos(e)); e.preventDefault(); }, { passive: false });
+    window.addEventListener('touchend',   function()  { scratching = false; });
+    canvas.addEventListener('touchmove',  function(e) { if (scratching) { doScratch(getPos(e)); e.preventDefault(); } }, { passive: false });
+  }
+
+  if (document.readyState === 'complete') initJourneyScratch();
+  else window.addEventListener('load', initJourneyScratch);
+})();
 </script>
 
 <!-- ================================================================
